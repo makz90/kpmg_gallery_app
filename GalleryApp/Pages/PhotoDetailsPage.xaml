@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:BasePage x:TypeArguments="viewModels:PhotoDetailsViewModel, models:PhotoPresentation" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                                 xmlns:base="clr-namespace:GalleryApp.Pages.Base;assembly=GalleryApp"
+                                 xmlns:contracts="clr-namespace:GalleryApp.Services.Rest.Contracts;assembly=GalleryApp"
+                                 xmlns:viewModels="clr-namespace:GalleryApp.ViewModels;assembly=GalleryApp"
+                                 xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                                 xmlns:models="clr-namespace:GalleryApp.Models;assembly=GalleryApp"
+                                 x:Class="GalleryApp.Pages.PhotoDetailsPage"
+                                 Title="{Binding CurrentPhoto.Title}">
+    <ContentPage.Content>
+        <forms:CachedImage 
+            FadeAnimationEnabled="True"
+            FadeAnimationDuration="300"
+            Source="{Binding CurrentPhoto.Url}"/>
+    </ContentPage.Content>
+</base:BasePage>

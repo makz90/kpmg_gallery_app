@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base1:BasePage
+    x:Class="GalleryApp.Pages.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:GalleryApp.ViewModels;assembly=GalleryApp"
+    xmlns:base1="clr-namespace:GalleryApp.Pages.Base;assembly=GalleryApp"
+    xmlns:controls="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    x:TypeArguments="viewModels:HomeViewModel, x:String" Title="Gallery App">
+
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            
+            <controls:FlowListView
+                BackgroundColor="Transparent"
+                FlowItemTappedCommand="{Binding NavigateToPhotoDetailsCommand}"
+                FlowItemsSource="{Binding PhotosCollection}" x:Name="PhotosFlowList"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All" >
+    
+                <controls:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <forms:CachedImage
+                            FadeAnimationEnabled="True"
+                            FadeAnimationDuration="300"
+                            Source="{Binding ThumbnailUrl}"/>
+                    </DataTemplate>
+                </controls:FlowListView.FlowColumnTemplate>
+            </controls:FlowListView>
+            
+            <StackLayout 
+                Padding="6" Orientation="Vertical"
+                BackgroundColor="Transparent"
+                IsVisible="{Binding IsBusy}"
+                AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+                
+                <ActivityIndicator
+                    Color="Accent"
+                    VerticalOptions="Center"
+                    IsRunning="{Binding IsBusy}"/>
+                <Label TextColor="Accent" Text="Loading..." VerticalOptions="Center" />
+            </StackLayout>
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</base1:BasePage>
