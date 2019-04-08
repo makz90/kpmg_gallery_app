@@ -31,7 +31,4 @@
       <HintPath>Tools\Mobile\XamlRefresh.Mobile.PCL.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\Base\" />
-  </ItemGroup>
 </Project>

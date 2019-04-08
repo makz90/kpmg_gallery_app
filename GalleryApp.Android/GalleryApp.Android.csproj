@@ -79,6 +79,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Renderers\DroidEntryRenderer.cs" />
     <Compile Include="Renderers\DroidNavigationPageRenderer.cs" />
     <Compile Include="Ioc\Bootstrapper.cs" />
     <Compile Include="Ioc\DroidContainerDependencyInjectionConfig.cs" />
