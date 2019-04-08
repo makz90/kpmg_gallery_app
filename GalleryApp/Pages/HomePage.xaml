@@ -30,15 +30,14 @@
                 </controls:FlowListView.FlowColumnTemplate>
             </controls:FlowListView>
 
-            <StackLayout Grid.Row="0"
-                Padding="6" Orientation="Vertical"
-                BackgroundColor="Transparent"
-                IsVisible="{Binding IsBusy}">
+            <StackLayout Grid.Row="0" 
+                 Padding="6" Orientation="Vertical"
+                 VerticalOptions="Center"
+                 HorizontalOptions="CenterAndExpand"
+                 BackgroundColor="Transparent" 
+                 IsVisible="{Binding IsBusy}">
 
-                <ActivityIndicator
-                    Color="Accent"
-                    VerticalOptions="Center"
-                    IsRunning="{Binding IsBusy}"/>
+                <ActivityIndicator Color="Accent" VerticalOptions="Center" IsRunning="{Binding IsBusy}"/>
                 <Label TextColor="Accent" Text="Loading..." VerticalOptions="Center" />
             </StackLayout>
             
