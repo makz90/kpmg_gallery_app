@@ -10,5 +10,7 @@ namespace GalleryApp.Pages
         {
             InitializeComponent();
         }
+
+        public override bool IsNavigationPage => false;
     }
 }

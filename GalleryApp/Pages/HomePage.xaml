@@ -10,15 +10,16 @@
     x:TypeArguments="viewModels:HomeViewModel, x:String" Title="Gallery App">
 
     <ContentPage.Content>
-        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            
-            <controls:FlowListView
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <controls:FlowListView Grid.Row="0"
                 BackgroundColor="Transparent"
                 FlowItemTappedCommand="{Binding NavigateToPhotoDetailsCommand}"
-                FlowItemsSource="{Binding PhotosCollection}" x:Name="PhotosFlowList"
-                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                AbsoluteLayout.LayoutFlags="All" >
-    
+                FlowItemsSource="{Binding PhotosCollection}" x:Name="PhotosFlowList">
+
                 <controls:FlowListView.FlowColumnTemplate>
                     <DataTemplate>
                         <forms:CachedImage
@@ -28,14 +29,12 @@
                     </DataTemplate>
                 </controls:FlowListView.FlowColumnTemplate>
             </controls:FlowListView>
-            
-            <StackLayout 
+
+            <StackLayout Grid.Row="0"
                 Padding="6" Orientation="Vertical"
                 BackgroundColor="Transparent"
-                IsVisible="{Binding IsBusy}"
-                AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
-                AbsoluteLayout.LayoutFlags="PositionProportional">
-                
+                IsVisible="{Binding IsBusy}">
+
                 <ActivityIndicator
                     Color="Accent"
                     VerticalOptions="Center"
@@ -43,6 +42,6 @@
                 <Label TextColor="Accent" Text="Loading..." VerticalOptions="Center" />
             </StackLayout>
             
-        </AbsoluteLayout>
+        </Grid>
     </ContentPage.Content>
 </base1:BasePage>

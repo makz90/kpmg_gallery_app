@@ -143,8 +143,11 @@ namespace GalleryApp.Services
 
         public static Page GetPageBasedOnConfiguration(IBasePage page)
         {
+            if (!page.IsNavigationPage) return page as Page;
+
             var naviPage = new NavigationPage(page as Page);
             return naviPage;
+
         }
     }
 }
